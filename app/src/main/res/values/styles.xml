@@ -16,5 +16,31 @@
         <item name="android:colorBackground">@color/appBackground</item>
 
     </style>
+    
+    <!-- Style for Header text -->
+    <style name="HeaderTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Style for Food item category container -->
+    <style name="CategoryItemStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">#FAFAFA</item>
+        <item name="android:layout_marginRight">8dp</item>
+    </style>
+
+    <!-- Style for image container -->
+    <style name="ImageContainerStyle">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
 
 </resources>
