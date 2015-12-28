@@ -1,4 +1,7 @@
 <resources>
+    
+    <!-- Android Background color -->
+    <color name="appBackground">#EEEEEE</color>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -9,6 +12,9 @@
         <item name="colorPrimaryDark">#009688</item>
         <!-- Theme UI controls like checkboxes and text fields -->
         <item name="colorAccent">#4CAF50</item>
+        <!-- App Background color -->
+        <item name="android:colorBackground">@color/appBackground</item>
+
     </style>
 
 </resources>
