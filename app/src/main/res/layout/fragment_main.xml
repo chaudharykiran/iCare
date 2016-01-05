@@ -29,6 +29,7 @@
                     android:text="My Favorites"/>
 
                 <TextView
+                    android:id="@+id/favorites"
                     style="@style/HeaderTextStyle"
                     android:text="More"
                     android:textColor="#00796B"
