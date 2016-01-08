@@ -37,14 +37,14 @@ public class ItemListActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_item_list, container, false);
 
-//        // RecyclerView
-//        RecyclerView categoryRecyclerView = (RecyclerView) rootView.findViewById(R.id.category_recycler_view);
-//        // use this settings to improve performance
-//        categoryRecyclerView.setHasFixedSize(true);
-//
-//        // use LinearLayoutManager
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-//        categoryRecyclerView.setLayoutManager(linearLayoutManager);
+        // RecyclerView
+        RecyclerView categoryRecyclerView = (RecyclerView) rootView.findViewById(R.id.category_recycler_view);
+        // use this settings to improve performance
+        categoryRecyclerView.setHasFixedSize(true);
+
+        // use LinearLayoutManager
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        categoryRecyclerView.setLayoutManager(linearLayoutManager);
 //
 //        // Create some data
 //        initializeDate();
