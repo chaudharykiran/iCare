@@ -70,11 +70,11 @@ public class ItemListActivityFragment extends Fragment {
         items.add(new Item("Item 1", R.drawable.item1));
         items.add(new Item("Item 2", R.drawable.item2));
         items.add(new Item("Item 3", R.drawable.item4));
-    }
+    }*/
 
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+/*    public static class ViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
         TextView itemName;
         ImageView itemPhotoId;
@@ -86,43 +86,33 @@ public class ItemListActivityFragment extends Fragment {
             itemName = (TextView) itemView.findViewById(R.id.item_name);
             itemPhotoId = (ImageView) itemView.findViewById(R.id.item_photo);
         }
-    }
+    }*/
 
-    *//* Creating an Adapter *//*
-    private class ItemAdapter extends RecyclerView.Adapter<ViewHolder> {
+    // Creating an Adapter
+    private class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
-        private List<Item> items;
-
-        // Provide a suitable constructor
-        public ItemAdapter (List<Item> items) {
-            this.items = items;
-        }
-
-        // Create new views (invoked by the layout manager)
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup viewGroup,
-                                                         int i) {
-            // Create a new view
-            View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_item_list, viewGroup, false);
-            ViewHolder viewHolder = new ViewHolder(v);
-
-            return viewHolder;
+        public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return null;
         }
 
-        // Replace the contents of a view (invoked by the layout manager)
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            Item ci = items.get(position);
+        public void onBindViewHolder(ItemViewHolder holder, int position) {
 
-            holder.itemName.setText(ci.itemName);
-            holder.itemPhotoId.setImageResource(ci.itemPhotoId);
         }
 
-        // Return the size of your dataset (invoked by the layout manager)
         @Override
         public int getItemCount() {
-            return items.size();
+            return 0;
         }
-    }*/
+
+        /* ViewHolder for this adapter */
+        class ItemViewHolder extends RecyclerView.ViewHolder {
+
+            public ItemViewHolder(View itemView) {
+                super(itemView);
+            }
+        }
+    }
 
 }
