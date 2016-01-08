@@ -1,6 +1,7 @@
 package com.example.icare;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -52,6 +53,8 @@ public class ItemListActivityFragment extends Fragment {
 
         // use LinearLayoutManager
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        categoryRecyclerView.setLayoutManager(linearLayoutManager);
+
 
         // Create some data
         initializeDate();
@@ -116,6 +119,9 @@ public class ItemListActivityFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Log.v(LOG_TAG, "Item Clicked.");
+
+                    Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                    startActivity(intent);
                 }
             });
         }
