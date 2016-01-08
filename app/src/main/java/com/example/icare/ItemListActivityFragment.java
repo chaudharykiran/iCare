@@ -52,8 +52,6 @@ public class ItemListActivityFragment extends Fragment {
 
         // use LinearLayoutManager
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        categoryRecyclerView.setLayoutManager(linearLayoutManager);
-
 
         // Create some data
         initializeDate();
