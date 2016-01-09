@@ -16,6 +16,11 @@
         <item name="android:colorBackground">@color/appBackground</item>
 
     </style>
+
+    <!-- SplashScreen background -->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
     
     <!-- Style for Header text -->
     <style name="HeaderTextStyle">
