@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class iCareDbHelper extends SQLiteOpenHelper {
 
     // Database name
-    private static final String DATABASE_NAME = "iCare.db";
+    public static final String DATABASE_NAME = "iCare.db";
 
     // Database version
     private static final int DATABASE_VERSION = 1;
@@ -28,15 +28,15 @@ public class iCareDbHelper extends SQLiteOpenHelper {
         // SQL statement in order to create Food table
         final String SQL_CREATE_FOOD_TABLE =
                 "CREATE TABLE " + iCareContract.FoodEntry.TABLE_NAME + "(" +
-                        iCareContract.FoodEntry._ID + "INTEGER PRIMARY KEY," +
-                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME + "TEXT NOT NULL," +
+                        iCareContract.FoodEntry._ID + " INTEGER PRIMARY KEY, " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME + " TEXT NOT NULL " +
                         " )";
 
         // SQL statement in order to create Exercise table
         final String SQL_CREATE_EXERCISE_TABLE =
                 "CREATE TABLE " + iCareContract.ExerciseEntry.TABLE_NAME + "(" +
-                        iCareContract.ExerciseEntry._ID + "INTEGER PRIMARY KEY," +
-                        iCareContract.ExerciseEntry.COLUMN_EXERCISE_NAME + "TEXT NOT NULL," +
+                        iCareContract.ExerciseEntry._ID + " INTEGER PRIMARY KEY, " +
+                        iCareContract.ExerciseEntry.COLUMN_EXERCISE_NAME + " TEXT NOT NULL " +
                 " )";
 
         // Execute sql statement in order to create sql table in database
