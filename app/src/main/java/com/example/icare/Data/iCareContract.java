@@ -1,5 +1,7 @@
 package com.example.icare.Data;
 
+import android.provider.BaseColumns;
+
 /**
  * Created by kiran on 1/10/16.
  *
@@ -18,6 +20,29 @@ public class iCareContract {
     // accessing weather data. content::/com.example.icare.provider/givemefood/ will
     // fail.
     public static final String PATH_FOOD = "food";
-    public static final String PATH_EXERCISE = "food";
-    public static final String PATH_BODY = "body";
+    public static final String PATH_EXERCISE = "exercise";
+
+    /**
+     * Inner class to define the contents of food table.
+     */
+    public static final class FoodEntry implements BaseColumns {
+
+        // Table name
+        public static final String TABLE_NAME = "food";
+
+        // Column food item name
+        public static final String COLUMN_FOOD_ITEM_NAME = "food_item_name";
+    }
+
+    /**
+     * Inner class to define the contents of exercise table.
+     */
+    public static final class ExerciseEntry implements BaseColumns {
+
+        // Table name
+        public static final String TABLE_NAME = "exercise";
+
+        // Column exercise name
+        public static final String COLUMN_EXERCISE_NAME = "exercise_name";
+    }
 }
