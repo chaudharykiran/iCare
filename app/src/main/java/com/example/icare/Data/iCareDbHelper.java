@@ -1,5 +1,6 @@
 package com.example.icare.Data;
 
+import android.content.ContentProvider;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -15,10 +16,10 @@ public class iCareDbHelper extends SQLiteOpenHelper {
     // Database version
     private static final int DATABASE_VERSION = 1;
 
-    // Constructor to create database
     public iCareDbHelper(Context context) {
-        super(context, this.DATABASE_NAME, null, this.DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
