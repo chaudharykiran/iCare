@@ -1,5 +1,6 @@
 package com.example.icare.Data;
 
+import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
@@ -15,6 +16,10 @@ public class iCareContract {
     // device.
     public static final String CONTENT_AUTHORITY = "com.example.icare.provider";
 
+    // Use CONTENT_AUTHORITY to create the base of all URI's which apps will use to contact
+    // the content provider.
+    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+
     // Possible paths
     // For instance : content:://com.example.icare.provider/food/ is valid at
     // accessing weather data. content::/com.example.icare.provider/givemefood/ will
@@ -27,6 +32,9 @@ public class iCareContract {
      */
     public static final class FoodEntry implements BaseColumns {
 
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_FOOD).build();
+
         // Table name
         public static final String TABLE_NAME = "food";
 
@@ -38,6 +46,9 @@ public class iCareContract {
      * Inner class to define the contents of exercise table.
      */
     public static final class ExerciseEntry implements BaseColumns {
+
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_EXERCISE).build();
 
         // Table name
         public static final String TABLE_NAME = "exercise";
