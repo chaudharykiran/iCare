@@ -3,6 +3,7 @@ package com.example.icare.Data;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
+import android.util.Log;
 
 import java.util.HashSet;
 
@@ -62,20 +63,22 @@ public class TestDb extends AndroidTestCase {
                 c.moveToFirst());
 
         // Build a HashSet of all of the column names we want to look for
-//        final HashSet<String> exerciseColumnHashSet = new HashSet<String>();
-//        exerciseColumnHashSet.add(iCareContract.ExerciseEntry._ID);
-//        exerciseColumnHashSet.add(iCareContract.ExerciseEntry.COLUMN_EXERCISE_NAME);
-//
-//        int columnNameIndex = c.getColumnIndex("exercise_name");
-//        do {
-//            String columnName = c.getString(columnNameIndex);
-//            exerciseColumnHashSet.remove(columnName);
-//        } while (c.moveToNext());
-//
-//        // if this fails, it means that our database doesn't contaion all of the required location
-//        // entry columns
-//        assertTrue("Error: The database doesn't contain all of the required exercise entry columns",
-//                exerciseColumnHashSet.isEmpty());
-//        db.close();
+        final HashSet<String> foodColumnHashSet = new HashSet<String>();
+        foodColumnHashSet.add(iCareContract.FoodEntry._ID);
+        foodColumnHashSet.add(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME);
+
+        int columnNameIndex = c.getColumnIndex("name");
+        Log.v(LOG_TAG, String.valueOf(columnNameIndex));
+        do {
+            String columnName = c.getString(columnNameIndex);
+            Log.v(LOG_TAG, columnName);
+            foodColumnHashSet.remove(columnName);
+        } while (c.moveToNext());
+
+        // if this fails, it means that our database doesn't contaion all of the required food
+        // entry columns
+        assertTrue("Error: The database doesn't contain all of the required exercise entry columns",
+                foodColumnHashSet.isEmpty());
+        db.close();
     }
 }
