@@ -1,5 +1,7 @@
 package com.example.icare.Data;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
@@ -35,11 +37,18 @@ public class iCareContract {
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_FOOD).build();
 
+        public static final String CONTENT_TYPE =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_FOOD;
+
         // Table name
         public static final String TABLE_NAME = "food";
 
         // Column food item name
         public static final String COLUMN_FOOD_ITEM_NAME = "food_item_name";
+
+        public static Uri buildFoodUri(long id) {
+            return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
     }
 
     /**
@@ -50,10 +59,17 @@ public class iCareContract {
         public static final Uri CONTENT_URI =
                 BASE_CONTENT_URI.buildUpon().appendPath(PATH_EXERCISE).build();
 
+        public static final String CONTENT_TYPE =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" +  CONTENT_AUTHORITY + "/" + PATH_EXERCISE;
+
         // Table name
         public static final String TABLE_NAME = "exercise";
 
         // Column exercise name
         public static final String COLUMN_EXERCISE_NAME = "exercise_name";
+
+        public static Uri buildExerciesUri(long id) {
+            return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
     }
 }
