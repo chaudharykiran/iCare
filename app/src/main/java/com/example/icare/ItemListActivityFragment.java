@@ -118,8 +118,6 @@ public class ItemListActivityFragment extends Fragment {
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.v(LOG_TAG, "Item Clicked.");
-
                     Intent intent = new Intent(getActivity(), DetailsActivity.class);
                     startActivity(intent);
                 }

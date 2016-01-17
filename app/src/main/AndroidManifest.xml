@@ -37,6 +37,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.example.icare.provider"
+            android:name=".Data.iCareContentProvider">
+        </provider>
     </application>
 
 </manifest>

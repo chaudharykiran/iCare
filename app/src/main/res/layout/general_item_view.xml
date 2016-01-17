@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/general_item_card_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    card_view:contentPadding="8dp">
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/general_item_card_view_photo"
+            style="@style/ImageContainerStyle"
+            android:src="@drawable/item1"/>
+
+        <TextView
+            android:id="@+id/general_item_card_view_photo_topic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem Ipsum"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
