@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.icare.Data.iCareContentProvider;
@@ -27,6 +28,8 @@ public class MainActivityFragment extends Fragment
         implements View.OnClickListener {
 
     private final static String LOG_TAG = MainActivityFragment.class.getSimpleName();
+    TextView textView, textView1, textView2;
+    LinearLayout favorites1,favorites2, foods1, foods2, exercise1, exercise2;
 
     public MainActivityFragment() {
     }
@@ -38,12 +41,24 @@ public class MainActivityFragment extends Fragment
         View rootView =  inflater.inflate(R.layout.fragment_main, container, false);
 
         // Handler when More text is clicked
-        TextView textView = (TextView) rootView.findViewById(R.id.favorites);
+        textView = (TextView) rootView.findViewById(R.id.favorites);
         textView.setOnClickListener(this);
-        TextView textView1 = (TextView) rootView.findViewById(R.id.foods);
+        textView1 = (TextView) rootView.findViewById(R.id.foods);
         textView1.setOnClickListener(this);
-        TextView textView2 = (TextView) rootView.findViewById(R.id.exercise);
+        textView2 = (TextView) rootView.findViewById(R.id.exercise);
         textView2.setOnClickListener(this);
+        favorites1 = (LinearLayout) rootView.findViewById(R.id.favorite_item_1);
+        favorites2 = (LinearLayout) rootView.findViewById(R.id.favorite_item_2);
+        foods1 = (LinearLayout) rootView.findViewById(R.id.foods_item_1);
+        foods2 = (LinearLayout) rootView.findViewById(R.id.foods_item_2);
+        exercise1 = (LinearLayout) rootView.findViewById(R.id.exercise_item_1);
+        exercise2 = (LinearLayout) rootView.findViewById(R.id.exercise_item_2);
+        favorites1.setOnClickListener(this);
+        favorites2.setOnClickListener(this);
+        foods1.setOnClickListener(this);
+        foods2.setOnClickListener(this);
+        exercise1.setOnClickListener(this);
+        exercise2.setOnClickListener(this);
 
 //        // Test for insertion process
         iCareContentProvider contentProvider = new iCareContentProvider();
@@ -81,8 +96,28 @@ public class MainActivityFragment extends Fragment
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(getActivity(), ItemListActivity.class);
+//        Intent intent = new Intent(getActivity(), ItemListActivity.class);
+//
+//        getActivity().startActivity(intent);
 
-        getActivity().startActivity(intent);
+        switch (view.getId()) {
+            case R.id.favorite_item_1:
+            case R.id.favorite_item_2:
+            case R.id.foods_item_1:
+            case R.id.foods_item_2:
+            case R.id.exercise_item_1:
+            case R.id.exercise_item_2:
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                getActivity().startActivity(intent);
+                break;
+            case R.id.favorites:
+            case R.id.foods:
+            case R.id.exercise:
+                Intent intent1 = new Intent(getActivity(), ItemListActivity.class);
+                getActivity().startActivity(intent1);
+                break;
+            default:
+                break;
+        }
     }
 }
