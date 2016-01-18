@@ -45,6 +45,11 @@ public class iCareContract {
 
         // Column food item name
         public static final String COLUMN_FOOD_ITEM_NAME = "food_item_name";
+        public static final String COLUMN_FOOD_ITEM_BRIEF_INFO = "food_item_brief_info";
+        public static final String COLUMN_FOOD_ITEM_CONTENT = "food_item_content";
+        public static final String COLUMN_FOOD_ITEM_TYPE = "food_item_type";
+        public static final String COLUMN_FOOD_ITEM_ENERGY = "food_item_energy";
+        public static final String COLUMN_FOOD_ITEM_CATEGORY = "food_item_category";
 
         public static Uri buildFoodUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
