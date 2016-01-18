@@ -5,6 +5,11 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.Fragment;
@@ -15,11 +20,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.icare.Data.iCareContentProvider;
 import com.example.icare.Data.iCareContract;
+
+import org.apache.http.util.EntityUtils;
+
+import java.io.ByteArrayOutputStream;
+import java.sql.Blob;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -28,6 +39,7 @@ public class MainActivityFragment extends Fragment
         implements View.OnClickListener {
 
     private final static String LOG_TAG = MainActivityFragment.class.getSimpleName();
+
     TextView textView, textView1, textView2;
     LinearLayout favorites1,favorites2, foods1, foods2, exercise1, exercise2;
 
@@ -64,32 +76,59 @@ public class MainActivityFragment extends Fragment
         iCareContentProvider contentProvider = new iCareContentProvider();
         // Create Content Values
 //        ContentValues values = new ContentValues();
-//        values.put(iCareContract.ExerciseEntry.COLUMN_EXERCISE_NAME, "Exercise Name 2");
+//        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME, "Food Item 1");
+//        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_BRIEF_INFO, "This is brief info about food item 1.");
+//        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CONTENT, "This is content about food item 1.");
+//        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_TYPE, "Types of food item 1.");
+//        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_ENERGY, "Some energy.");
+//        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CATEGORY, "Some Category.");
 //
-//        Uri exerciseUri
-//                = getActivity().getContentResolver().insert(iCareContract.ExerciseEntry.CONTENT_URI, values);
-//        long exerciseRowId = ContentUris.parseId(exerciseUri);
-//        Log.v(LOG_TAG , String.valueOf(exerciseRowId));
+//        // store image in database
+//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.android);
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//        byte[] bitMapData = stream.toByteArray();
+//
+//        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_IMAGE, bitMapData);
+//
+//        Uri foodUri
+//                = getActivity().getContentResolver().insert(iCareContract.FoodEntry.CONTENT_URI, values);
+//        long foodRowId = ContentUris.parseId(foodUri);
+//        Log.v(LOG_TAG , String.valueOf(foodRowId));
 
         // Test for query database
-        Cursor cursor =
-                getActivity().getContentResolver().query(
-                        iCareContract.ExerciseEntry.CONTENT_URI,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null
-                );
-        if (cursor.moveToFirst()){
-            while(!cursor.isAfterLast()){
-                String data = cursor.getString(cursor.getColumnIndex(iCareContract.ExerciseEntry.COLUMN_EXERCISE_NAME));
-                // do what ever you want here
-                Log.v(LOG_TAG, data);
-                cursor.moveToNext();
-            }
-        }
-        cursor.close();
+//        Cursor cursor =
+//                getActivity().getContentResolver().query(
+//                        iCareContract.FoodEntry.CONTENT_URI,
+//                        null,
+//                        null,
+//                        null,
+//                        null,
+//                        null
+//                );
+//
+//
+//
+//        if (cursor.moveToFirst()){
+//            while(!cursor.isAfterLast()){
+//                String foodItemName = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME));
+//                String foodItemInfo = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_BRIEF_INFO));
+//                String foodItemContent = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CONTENT));
+//                byte[] foodItemImage = cursor.getBlob(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_IMAGE));
+//
+//                // convert byte to drawable
+//                Drawable image = new BitmapDrawable(BitmapFactory.decodeByteArray(foodItemImage, 0, foodItemImage.length));
+//                ImageView exerciseItem1 = (ImageView) rootView.findViewById(R.id.exercise_item_1_image);
+//                exerciseItem1.setImageDrawable(image);
+//
+//                Log.v(LOG_TAG, foodItemName);
+//                Log.v(LOG_TAG, foodItemInfo);
+//                Log.v(LOG_TAG, foodItemContent);
+//                // do what ever you want here
+//                cursor.moveToNext();
+//            }
+//        }
+//        cursor.close();
 
         return rootView;
     }

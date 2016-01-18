@@ -288,6 +288,7 @@
                         style="@style/CategoryItemStyle">
 
                         <ImageView
+                            android:id="@+id/exercise_item_1_image"
                             style="@style/ImageContainerStyle"
                             android:src="@drawable/item5"/>
 

@@ -34,7 +34,8 @@ public class iCareDbHelper extends SQLiteOpenHelper {
                         iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CONTENT + " TEXT NOT NULL, " +
                         iCareContract.FoodEntry.COLUMN_FOOD_ITEM_TYPE + " TEXT, " +
                         iCareContract.FoodEntry.COLUMN_FOOD_ITEM_ENERGY + " TEXT, " +
-                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CATEGORY + " TEXT NOT NULL " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CATEGORY + " TEXT NOT NULL, " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_IMAGE + " BLOB NOT NULL " +
                         " )";
 
         // SQL statement in order to create Exercise table

@@ -5,6 +5,8 @@ import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
+import java.sql.Blob;
+
 /**
  * Created by kiran on 1/10/16.
  *
@@ -50,6 +52,7 @@ public class iCareContract {
         public static final String COLUMN_FOOD_ITEM_TYPE = "food_item_type";
         public static final String COLUMN_FOOD_ITEM_ENERGY = "food_item_energy";
         public static final String COLUMN_FOOD_ITEM_CATEGORY = "food_item_category";
+        public static final String COLUMN_FOOD_ITEM_IMAGE = "food_item_image";
 
         public static Uri buildFoodUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
