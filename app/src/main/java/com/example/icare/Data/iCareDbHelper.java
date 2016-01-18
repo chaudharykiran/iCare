@@ -14,7 +14,7 @@ public class iCareDbHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "iCare.db";
 
     // Database version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // iCareDbHelper to create database
     public iCareDbHelper(Context context) {
@@ -29,7 +29,12 @@ public class iCareDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_FOOD_TABLE =
                 "CREATE TABLE " + iCareContract.FoodEntry.TABLE_NAME + "(" +
                         iCareContract.FoodEntry._ID + " INTEGER PRIMARY KEY, " +
-                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME + " TEXT NOT NULL " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME + " TEXT NOT NULL, " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_BRIEF_INFO + " TEXT NOT NULL, " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CONTENT + " TEXT NOT NULL, " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_TYPE + " TEXT, " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_ENERGY + " TEXT, " +
+                        iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CATEGORY + " TEXT NOT NULL " +
                         " )";
 
         // SQL statement in order to create Exercise table
