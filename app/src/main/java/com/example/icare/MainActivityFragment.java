@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -71,6 +72,7 @@ public class MainActivityFragment extends Fragment
         foods2.setOnClickListener(this);
         exercise1.setOnClickListener(this);
         exercise2.setOnClickListener(this);
+
 
 //        // Test for insertion process
         iCareContentProvider contentProvider = new iCareContentProvider();
@@ -135,10 +137,6 @@ public class MainActivityFragment extends Fragment
 
     @Override
     public void onClick(View view) {
-//        Intent intent = new Intent(getActivity(), ItemListActivity.class);
-//
-//        getActivity().startActivity(intent);
-
         switch (view.getId()) {
             case R.id.favorite_item_1:
             case R.id.favorite_item_2:

@@ -1,16 +1,40 @@
 package com.example.icare;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements View.OnClickListener{
+
+    FloatingActionButton floatingButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // click handler for floating action button
+        floatingButton = (FloatingActionButton) findViewById(R.id.float_button);
+        floatingButton.setOnClickListener((View.OnClickListener) this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.float_button:
+                Intent intent = new Intent(this, AddItem.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
