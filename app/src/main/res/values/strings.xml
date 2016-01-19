@@ -4,4 +4,5 @@
     <string name="title_activity_item_list">ItemList</string>
     <string name="title_activity_details">DetailsActivity</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_add_item">Add Item</string>
 </resources>

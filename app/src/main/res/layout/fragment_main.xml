@@ -2,368 +2,364 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:scrollbars="none"
     tools:context="com.example.icare.MainActivityFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
 
-                <TextView
-                    style="@style/HeaderTextStyle"
-                    android:text="My Favorites"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/favorites"
-                    style="@style/HeaderTextStyle"
-                    android:text="More"
-                    android:textColor="#00796B"
-                    android:layout_alignParentRight="true"/>
+                    <TextView
+                        style="@style/HeaderTextStyle"
+                        android:text="My Favorites"/>
 
-            </RelativeLayout>
+                    <TextView
+                        android:id="@+id/favorites"
+                        style="@style/HeaderTextStyle"
+                        android:text="More"
+                        android:textColor="#00796B"
+                        android:layout_alignParentRight="true"/>
 
-            <HorizontalScrollView
+                </RelativeLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+
+                        <LinearLayout
+                            android:id="@+id/favorite_item_1"
+                            style="@style/CategoryItemStyle">
+
+                            <ImageView
+                                style="@style/ImageContainerStyle"
+                                android:src="@drawable/item1"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lorem Ipsum"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2.5"/>
+
+                                <RatingBar
+                                    android:id="@+id/rating_bar"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:numStars="5"
+                                    android:rating="2.5"
+                                    android:stepSize="0.5" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/favorite_item_2"
+                            style="@style/CategoryItemStyle">
+
+                            <ImageView
+                                style="@style/ImageContainerStyle"
+                                android:src="@drawable/item2"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lorem Ipsum"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2.5"/>
+
+                                <RatingBar
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:numStars="5"
+                                    android:rating="2.5"
+                                    android:stepSize="0.5" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
 
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+                    <TextView
+                        style="@style/HeaderTextStyle"
+                        android:text="Foods"/>
+
+                    <TextView
+                        android:id="@+id/foods"
+                        style="@style/HeaderTextStyle"
+                        android:layout_alignParentRight="true"
+                        android:text="More"
+                        android:textColor="#00796B"/>
+
+                </RelativeLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
 
 
                     <LinearLayout
-                        android:id="@+id/favorite_item_1"
-                        style="@style/CategoryItemStyle">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                        <ImageView
-                            style="@style/ImageContainerStyle"
-                            android:src="@drawable/item1"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem Ipsum"/>
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:id="@+id/foods_item_1"
+                            style="@style/CategoryItemStyle">
+
+                            <ImageView
+                                style="@style/ImageContainerStyle"
+                                android:src="@drawable/item1"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2.5"/>
+                                android:text="Lorem Ipsum"/>
 
-                            <RatingBar
-                                android:id="@+id/rating_bar"
-                                style="?android:attr/ratingBarStyleSmall"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:numStars="5"
-                                android:rating="2.5"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2.5"/>
+
+                                <RatingBar
+                                    android:id="@+id/rating_bar"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:numStars="5"
+                                    android:rating="2.5"
+                                    android:stepSize="0.5" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/foods_item_2"
+                            style="@style/CategoryItemStyle">
+
+                            <ImageView
+                                style="@style/ImageContainerStyle"
+                                android:src="@drawable/item2"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lorem Ipsum"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2.5"/>
+
+                                <RatingBar
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:numStars="5"
+                                    android:rating="2.5"
+                                    android:stepSize="0.5" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
                     </LinearLayout>
 
+                </HorizontalScrollView>
 
-                    <LinearLayout
-                        android:id="@+id/favorite_item_2"
-                        style="@style/CategoryItemStyle">
-
-                        <ImageView
-                            style="@style/ImageContainerStyle"
-                            android:src="@drawable/item2"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem Ipsum"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2.5"/>
-
-                            <RatingBar
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:numStars="5"
-                                android:rating="2.5"
-                                android:stepSize="0.5" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
+            </LinearLayout>
 
 
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="8dp">
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
 
-                <TextView
-                    style="@style/HeaderTextStyle"
-                    android:text="Foods"/>
-
-                <TextView
-                    android:id="@+id/foods"
-                    style="@style/HeaderTextStyle"
-                    android:layout_alignParentRight="true"
-                    android:text="More"
-                    android:textColor="#00796B"/>
-
-            </RelativeLayout>
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none">
-
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+                    <TextView
+                        style="@style/HeaderTextStyle"
+                        android:text="Exercises"/>
 
+                    <TextView
+                        android:id="@+id/exercise"
+                        style="@style/HeaderTextStyle"
+                        android:layout_alignParentRight="true"
+                        android:text="More"
+                        android:textColor="#00796B"/>
 
-                    <LinearLayout
-                        android:id="@+id/foods_item_1"
-                        style="@style/CategoryItemStyle">
+                </RelativeLayout>
 
-                        <ImageView
-                            style="@style/ImageContainerStyle"
-                            android:src="@drawable/item1"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem Ipsum"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2.5"/>
-
-                            <RatingBar
-                                android:id="@+id/rating_bar"
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:numStars="5"
-                                android:rating="2.5"
-                                android:stepSize="0.5" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/foods_item_2"
-                        style="@style/CategoryItemStyle">
-
-                        <ImageView
-                            style="@style/ImageContainerStyle"
-                            android:src="@drawable/item2"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem Ipsum"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2.5"/>
-
-                            <RatingBar
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:numStars="5"
-                                android:rating="2.5"
-                                android:stepSize="0.5" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="8dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/HeaderTextStyle"
-                    android:text="Exercises"/>
-
-                <TextView
-                    android:id="@+id/exercise"
-                    style="@style/HeaderTextStyle"
-                    android:layout_alignParentRight="true"
-                    android:text="More"
-                    android:textColor="#00796B"/>
-
-            </RelativeLayout>
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none">
-
-
-                <LinearLayout
+                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
+                    android:scrollbars="none">
 
 
                     <LinearLayout
-                        android:id="@+id/exercise_item_1"
-                        style="@style/CategoryItemStyle">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                        <ImageView
-                            android:id="@+id/exercise_item_1_image"
-                            style="@style/ImageContainerStyle"
-                            android:src="@drawable/item5"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem Ipsum"/>
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:id="@+id/exercise_item_1"
+                            style="@style/CategoryItemStyle">
+
+                            <ImageView
+                                android:id="@+id/exercise_item_1_image"
+                                style="@style/ImageContainerStyle"
+                                android:src="@drawable/item5"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="2.5"/>
+                                android:text="Lorem Ipsum"/>
 
-                            <RatingBar
-                                android:id="@+id/rating_bar"
-                                style="?android:attr/ratingBarStyleSmall"
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:numStars="5"
-                                android:rating="2.5"
-                                android:stepSize="0.5" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2.5"/>
+
+                                <RatingBar
+                                    android:id="@+id/rating_bar"
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:numStars="5"
+                                    android:rating="2.5"
+                                    android:stepSize="0.5" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/exercise_item_2"
+                            style="@style/CategoryItemStyle">
+
+                            <ImageView
+                                style="@style/ImageContainerStyle"
+                                android:src="@drawable/item6"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lorem Ipsum"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2.5"/>
+
+                                <RatingBar
+                                    style="?android:attr/ratingBarStyleSmall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:numStars="5"
+                                    android:rating="2.5"
+                                    android:stepSize="0.5" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
                     </LinearLayout>
 
+                </HorizontalScrollView>
 
-                    <LinearLayout
-                        android:id="@+id/exercise_item_2"
-                        style="@style/CategoryItemStyle">
+            </LinearLayout>
 
-                        <ImageView
-                            style="@style/ImageContainerStyle"
-                            android:src="@drawable/item6"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Lorem Ipsum"/>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2.5"/>
-
-                            <RatingBar
-                                style="?android:attr/ratingBarStyleSmall"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:numStars="5"
-                                android:rating="2.5"
-                                android:stepSize="0.5" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </HorizontalScrollView>
 
         </LinearLayout>
-
-
-    </LinearLayout>
 
 
 </ScrollView>
