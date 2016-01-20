@@ -99,38 +99,38 @@ public class MainActivityFragment extends Fragment
 //        Log.v(LOG_TAG , String.valueOf(foodRowId));
 
         // Test for query database
-//        Cursor cursor =
-//                getActivity().getContentResolver().query(
-//                        iCareContract.FoodEntry.CONTENT_URI,
-//                        null,
-//                        null,
-//                        null,
-//                        null,
-//                        null
-//                );
-//
-//
-//
-//        if (cursor.moveToFirst()){
-//            while(!cursor.isAfterLast()){
-//                String foodItemName = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME));
-//                String foodItemInfo = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_BRIEF_INFO));
-//                String foodItemContent = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CONTENT));
-//                byte[] foodItemImage = cursor.getBlob(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_IMAGE));
-//
-//                // convert byte to drawable
-//                Drawable image = new BitmapDrawable(BitmapFactory.decodeByteArray(foodItemImage, 0, foodItemImage.length));
-//                ImageView exerciseItem1 = (ImageView) rootView.findViewById(R.id.exercise_item_1_image);
-//                exerciseItem1.setImageDrawable(image);
-//
-//                Log.v(LOG_TAG, foodItemName);
-//                Log.v(LOG_TAG, foodItemInfo);
-//                Log.v(LOG_TAG, foodItemContent);
-//                // do what ever you want here
-//                cursor.moveToNext();
-//            }
-//        }
-//        cursor.close();
+        Cursor cursor =
+                getActivity().getContentResolver().query(
+                        iCareContract.FoodEntry.CONTENT_URI,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null
+                );
+
+
+
+        if (cursor.moveToFirst()){
+            while(!cursor.isAfterLast()){
+                String foodItemName = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME));
+                String foodItemInfo = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_BRIEF_INFO));
+                String foodItemContent = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CONTENT));
+                byte[] foodItemImage = cursor.getBlob(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_IMAGE));
+
+                // convert byte to drawable
+                Drawable image = new BitmapDrawable(BitmapFactory.decodeByteArray(foodItemImage, 0, foodItemImage.length));
+                ImageView exerciseItem1 = (ImageView) rootView.findViewById(R.id.exercise_item_1_image);
+                exerciseItem1.setImageDrawable(image);
+
+                Log.v(LOG_TAG, foodItemName);
+                Log.v(LOG_TAG, foodItemInfo);
+                Log.v(LOG_TAG, foodItemContent);
+                // do what ever you want here
+                cursor.moveToNext();
+            }
+        }
+        cursor.close();
 
         return rootView;
     }
