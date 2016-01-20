@@ -98,7 +98,6 @@ public class ItemListActivityFragment extends Fragment {
 
         @Override
         public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            Log.v(LOG_TAG, "onCreateViewHolder called.");
             View view = inflater.inflate(R.layout.category_item, parent,false);
 
             ItemViewHolder holder = new ItemViewHolder(view);
@@ -108,7 +107,6 @@ public class ItemListActivityFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(ItemViewHolder holder, int position) {
-            Log.v(LOG_TAG, "onBindViewHolder called.");
             Item current = items.get(position);
 
             holder.itemName.setText(current.itemName);
