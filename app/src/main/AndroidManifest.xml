@@ -4,6 +4,8 @@
 
     <!-- permission to use camera -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <!-- permission to write in external storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"

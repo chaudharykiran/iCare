@@ -4,12 +4,15 @@ import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.icare.Data.iCareContract;
@@ -25,12 +29,17 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class AddItem extends AppCompatActivity {
 
     /* private instance */
     private Button submitButton, selectPhoto;
     private EditText itemName, itemBriefInfo, itemContent, itemTypes, itemEnergy, itemCategory;
+    ImageView imageView;
     private int REQUEST_CAMERA = 100;
     private int SELECT_FILE = 200;
 
@@ -45,6 +54,8 @@ public class AddItem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+
+        imageView = (ImageView) findViewById(R.id.selected_image);
 
         // event handler for submit button
         submitButton = (Button) findViewById(R.id.button_submit);
@@ -165,6 +176,73 @@ public class AddItem extends AppCompatActivity {
 
         // show dialog
         builder.show();
+    }
+
+    /**
+     * This function handles result receiver by calling
+     * startActivityForResult.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && data != null) {
+            if (requestCode == REQUEST_CAMERA) {
+                Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, stream);
+
+                File destination = new File(Environment.getExternalStorageDirectory(),
+                        System.currentTimeMillis() + ".jpg");
+
+                FileOutputStream fo;
+                try {
+                    destination.createNewFile();
+                    fo = new FileOutputStream(destination);
+                    fo.write(stream.toByteArray());
+                    fo.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                imageView.setImageBitmap(thumbnail);
+            } else if (requestCode == SELECT_FILE) {
+                Uri selectedImageUri = data.getData();
+
+                String[] projection = { MediaStore.MediaColumns.DATA };
+                CursorLoader cursorLoader = new CursorLoader(this, selectedImageUri, projection, null, null, null);
+
+                Cursor cursor = cursorLoader.loadInBackground();
+                int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+                cursor.moveToFirst();
+
+                String selectedImagePath = cursor.getString(column_index);
+
+                Bitmap bm;
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(selectedImagePath, options);
+
+                final int REQUIRED_SIZE = 200;
+                int scale = 1;
+
+                while (options.outWidth / scale / 2 >= REQUIRED_SIZE
+                        && options.outHeight / scale / 2 >= REQUIRED_SIZE) {
+                    scale *= 2;
+                }
+                options.inSampleSize = scale;
+                options.inJustDecodeBounds = false;
+                bm = BitmapFactory.decodeFile(selectedImagePath, options);
+
+                imageView.setImageBitmap(bm);
+            }
+        }
     }
 
     @Override
