@@ -31,6 +31,7 @@ public class AddItem extends AppCompatActivity {
     /* private instance */
     private Button submitButton, selectPhoto;
     private EditText itemName, itemBriefInfo, itemContent, itemTypes, itemEnergy, itemCategory;
+    private int REQUEST_CAMERA = 100;
 
     private static final String LOG_TAG = AddItem.class.getSimpleName();
     /**
@@ -54,9 +55,11 @@ public class AddItem extends AppCompatActivity {
         });
 
         // event handler for add photo button
+        selectPhoto = (Button) findViewById(R.id.button_select_photo);
         selectPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v(LOG_TAG, "selectPhoto button clicked.");
                 selectPhoto();
             }
         });
@@ -142,14 +145,19 @@ public class AddItem extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (items[which].equals("Take Photo")) {
-                    
-                } else if () {
+                    // Compose camera intent
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, REQUEST_CAMERA);
+                } else if (items[which].equals("Choose from Library")) {
 
-                } else if () {
+                } else if (items[which].equals("Cancel")) {
 
                 }
             }
         });
+
+        // show dialog
+        builder.show();
     }
 
     @Override
