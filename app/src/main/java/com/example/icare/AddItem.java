@@ -1,12 +1,16 @@
 package com.example.icare;
 
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,7 +29,7 @@ import java.io.ByteArrayOutputStream;
 public class AddItem extends AppCompatActivity {
 
     /* private instance */
-    private Button submitButton;
+    private Button submitButton, selectPhoto;
     private EditText itemName, itemBriefInfo, itemContent, itemTypes, itemEnergy, itemCategory;
 
     private static final String LOG_TAG = AddItem.class.getSimpleName();
@@ -46,6 +50,14 @@ public class AddItem extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 extractData();
+            }
+        });
+
+        // event handler for add photo button
+        selectPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectPhoto();
             }
         });
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -115,6 +127,29 @@ public class AddItem extends AppCompatActivity {
         byte[] bitMapData = stream.toByteArray();
 
         return bitMapData;
+    }
+
+    /**
+     * This functions take image from gallery or camera.We want to show the dialog box to
+     * user with options when user clicks on the select photo button.
+     */
+    private void selectPhoto() {
+        final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancle"};
+
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+        builder.setTitle("Add Photo!");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (items[which].equals("Take Photo")) {
+                    
+                } else if () {
+
+                } else if () {
+
+                }
+            }
+        });
     }
 
     @Override
