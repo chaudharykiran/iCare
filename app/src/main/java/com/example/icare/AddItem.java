@@ -32,6 +32,7 @@ public class AddItem extends AppCompatActivity {
     private Button submitButton, selectPhoto;
     private EditText itemName, itemBriefInfo, itemContent, itemTypes, itemEnergy, itemCategory;
     private int REQUEST_CAMERA = 100;
+    private int SELECT_FILE = 200;
 
     private static final String LOG_TAG = AddItem.class.getSimpleName();
     /**
@@ -149,9 +150,15 @@ public class AddItem extends AppCompatActivity {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(intent, REQUEST_CAMERA);
                 } else if (items[which].equals("Choose from Library")) {
-
+                    Intent intent = new Intent(
+                            Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI );
+                    intent.setType("image/*");
+                    startActivityForResult(
+                            Intent.createChooser(intent, "Select File"),
+                            SELECT_FILE );
                 } else if (items[which].equals("Cancel")) {
-
+                    dialog.dismiss();
                 }
             }
         });
