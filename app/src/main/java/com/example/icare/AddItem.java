@@ -17,6 +17,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,7 +40,8 @@ public class AddItem extends AppCompatActivity {
     /* private instance */
     private Button submitButton, selectPhoto;
     private EditText itemName, itemBriefInfo, itemContent, itemTypes, itemEnergy, itemCategory;
-    ImageView imageView;
+    private ImageView imageView;
+    private Bitmap bm = null;
     private int REQUEST_CAMERA = 100;
     private int SELECT_FILE = 200;
 
@@ -119,7 +121,7 @@ public class AddItem extends AppCompatActivity {
         values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CATEGORY, item_category);
 
         // save image
-        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_IMAGE, toByteArray(R.drawable.item1));
+        values.put(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_IMAGE, toByteArray());
 
         // insert data in database
         Uri foodUri
@@ -135,11 +137,11 @@ public class AddItem extends AppCompatActivity {
 //        }
     }
 
-    private byte[] toByteArray(int id) {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.android);
+    private byte[] toByteArray() {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        bm.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] bitMapData = stream.toByteArray();
+        Log.v(LOG_TAG, "toByteArray called.");
 
         return bitMapData;
     }
@@ -181,8 +183,7 @@ public class AddItem extends AppCompatActivity {
     /**
      * This function handles result receiver by calling
      * startActivityForResult.
-     *
-     * @param requestCode
+     *  @param requestCode
      * @param resultCode
      * @param data
      */
@@ -212,6 +213,7 @@ public class AddItem extends AppCompatActivity {
                 }
 
                 imageView.setImageBitmap(thumbnail);
+                bm = thumbnail;
             } else if (requestCode == SELECT_FILE) {
                 Uri selectedImageUri = data.getData();
 
@@ -224,7 +226,6 @@ public class AddItem extends AppCompatActivity {
 
                 String selectedImagePath = cursor.getString(column_index);
 
-                Bitmap bm;
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
                 BitmapFactory.decodeFile(selectedImagePath, options);

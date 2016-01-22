@@ -11,11 +11,11 @@
         <!-- Darker variant for the status bar and contextual app bars -->
         <item name="colorPrimaryDark">#009688</item>
         <!-- Theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">#4CAF50</item>
+        <item name="colorAccent">#009688</item>
         <!-- App Background color -->
         <item name="android:colorBackground">@color/appBackground</item>
-
     </style>
+
 
     <!-- SplashScreen background -->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">

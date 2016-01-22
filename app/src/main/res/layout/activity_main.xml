@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:src="@drawable/fab_plus"
-        app:backgroundTint="#4CAF50"
+        app:backgroundTint="#009688"
         app:borderWidth="0dp"
         app:elevation="8dp"
         app:fabSize="normal"/>

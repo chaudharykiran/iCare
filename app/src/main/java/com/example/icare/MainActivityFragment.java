@@ -108,9 +108,9 @@ public class MainActivityFragment extends Fragment
 //                        null,
 //                        null
 //                );
-
-
-
+//
+//
+//
 //        if (cursor.moveToFirst()){
 //            while(!cursor.isAfterLast()){
 //                String foodItemName = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME));
