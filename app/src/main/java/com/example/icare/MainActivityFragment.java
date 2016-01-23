@@ -29,6 +29,7 @@ import com.example.icare.Data.iCareContentProvider;
 import com.example.icare.Data.iCareContract;
 
 import org.apache.http.util.EntityUtils;
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 import java.sql.Blob;
@@ -98,39 +99,6 @@ public class MainActivityFragment extends Fragment
 //        long foodRowId = ContentUris.parseId(foodUri);
 //        Log.v(LOG_TAG , String.valueOf(foodRowId));
 
-        // Test for query database
-//        Cursor cursor =
-//                getActivity().getContentResolver().query(
-//                        iCareContract.FoodEntry.CONTENT_URI,
-//                        null,
-//                        null,
-//                        null,
-//                        null,
-//                        null
-//                );
-//
-//
-//
-//        if (cursor.moveToFirst()){
-//            while(!cursor.isAfterLast()){
-//                String foodItemName = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_NAME));
-//                String foodItemInfo = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_BRIEF_INFO));
-//                String foodItemContent = cursor.getString(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_CONTENT));
-//                byte[] foodItemImage = cursor.getBlob(cursor.getColumnIndex(iCareContract.FoodEntry.COLUMN_FOOD_ITEM_IMAGE));
-//
-//                // convert byte to drawable
-//                Drawable image = new BitmapDrawable(BitmapFactory.decodeByteArray(foodItemImage, 0, foodItemImage.length));
-//                ImageView exerciseItem1 = (ImageView) rootView.findViewById(R.id.exercise_item_1_image);
-//                exerciseItem1.setImageDrawable(image);
-//
-//                Log.v(LOG_TAG, foodItemName);
-//                Log.v(LOG_TAG, foodItemInfo);
-//                Log.v(LOG_TAG, foodItemContent);
-//                // do what ever you want here
-//                cursor.moveToNext();
-//            }
-//        }
-//        cursor.close();
 
         return rootView;
     }
@@ -139,13 +107,34 @@ public class MainActivityFragment extends Fragment
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.favorite_item_1:
+                TextView textViewItem1 = (TextView) favorites1.findViewById(R.id.favorite_item_1_name);
+                String itemName1 = textViewItem1.getText().toString();
+                startAnotherActivity(itemName1);
+                break;
             case R.id.favorite_item_2:
+                TextView textViewItem2 = (TextView) favorites2.findViewById(R.id.favorite_item_2_name);
+                String itemName2 = textViewItem2.getText().toString();
+                startAnotherActivity(itemName2);
+                break;
             case R.id.foods_item_1:
+                TextView textViewItem3 = (TextView) foods1.findViewById(R.id.foods_item_1_name);
+                String itemName3 = textViewItem3.getText().toString();
+                startAnotherActivity(itemName3);
+                break;
             case R.id.foods_item_2:
+                TextView textViewItem4 = (TextView) foods2.findViewById(R.id.foods_item_2_name);
+                String itemName4 = textViewItem4.getText().toString();
+                startAnotherActivity(itemName4);
+                break;
             case R.id.exercise_item_1:
+                TextView textViewItem5 = (TextView) exercise1.findViewById(R.id.exercise_item_1_name);
+                String itemName5 = textViewItem5.getText().toString();
+                startAnotherActivity(itemName5);
+                break;
             case R.id.exercise_item_2:
-                Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                getActivity().startActivity(intent);
+                TextView textViewItem6 = (TextView) exercise2.findViewById(R.id.exercise_item_2_name);
+                String itemName6 = textViewItem6.getText().toString();
+                startAnotherActivity(itemName6);
                 break;
             case R.id.favorites:
             case R.id.foods:
@@ -156,5 +145,15 @@ public class MainActivityFragment extends Fragment
             default:
                 break;
         }
+    }
+
+    /**
+     * This function will create intent and load some data on it and call another activity.
+     */
+    private void startAnotherActivity(String itemName) {
+        // compose intent
+        Intent intent = new Intent(getActivity(), DetailsActivity.class);
+        intent.putExtra("ITEM_NAME", itemName);
+        getActivity().startActivity(intent);
     }
 }

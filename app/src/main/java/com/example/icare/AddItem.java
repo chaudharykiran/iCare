@@ -1,7 +1,7 @@
 package com.example.icare;
 
-import android.app.AlertDialog;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.CursorLoader;
@@ -14,15 +14,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.icare.Data.iCareContract;
 import com.google.android.gms.appindexing.Action;
@@ -95,12 +92,12 @@ public class AddItem extends AppCompatActivity {
         itemCategory = (EditText) findViewById(R.id.item_category);
 
         // extract data from edit text
-        String item_name = itemName.getText().toString();
+        String item_name = itemName.getText().toString().toLowerCase();
         String item_brief_info = itemBriefInfo.getText().toString();
         String item_content = itemContent.getText().toString();
         String item_types = itemTypes.getText().toString();
         String item_energy = itemEnergy.getText().toString();
-        String item_category = itemCategory.getText().toString();
+        String item_category = itemCategory.getText().toString().toLowerCase();
 
         // insert the extracted data in database
         insertIntoDatabase(item_name, item_brief_info, item_content, item_types, item_energy, item_category);
@@ -130,10 +127,11 @@ public class AddItem extends AppCompatActivity {
         Log.v(LOG_TAG, String.valueOf(foodRowId));
 
 //        if (foodRowId > 0) {
+//
 //            FragmentManager fragmentManager = getFragmentManager();
-//            fragmentManager.beginTransaction()
-//                    .replace(R.layout.activity_add_item, null)
-//                    .commit();
+//            FragmentTransaction transaction = fragmentManager.beginTransaction();
+//            transaction.replace(R.id.details_activity_fragment, fragmentManager.findFragmentById(R.id.submission_completed));
+//            transaction.commit();
 //        }
     }
 

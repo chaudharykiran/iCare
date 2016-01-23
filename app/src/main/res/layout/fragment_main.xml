@@ -52,12 +52,13 @@
 
                             <ImageView
                                 style="@style/ImageContainerStyle"
-                                android:src="@drawable/item1"/>
+                                android:src="@drawable/fish"/>
 
                             <TextView
+                                android:id="@+id/favorite_item_1_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Lorem Ipsum"/>
+                                android:text="Fish"/>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -92,6 +93,7 @@
                                 android:src="@drawable/item2"/>
 
                             <TextView
+                                android:id="@+id/favorite_item_2_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Lorem Ipsum"/>
@@ -172,6 +174,7 @@
                                 android:src="@drawable/item1"/>
 
                             <TextView
+                                android:id="@+id/foods_item_1_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Lorem Ipsum"/>
@@ -209,6 +212,7 @@
                                 android:src="@drawable/item2"/>
 
                             <TextView
+                                android:id="@+id/foods_item_2_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Lorem Ipsum"/>
@@ -289,6 +293,7 @@
                                 android:src="@drawable/item5"/>
 
                             <TextView
+                                android:id="@+id/exercise_item_1_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Lorem Ipsum"/>
@@ -326,6 +331,7 @@
                                 android:src="@drawable/item6"/>
 
                             <TextView
+                                android:id="@+id/exercise_item_2_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Lorem Ipsum"/>
