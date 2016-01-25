@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.icare.Data.iCareContract;
 import com.google.android.gms.appindexing.Action;
@@ -35,7 +36,7 @@ import java.io.IOException;
 public class AddItem extends AppCompatActivity {
 
     /* private instance */
-    private Button submitButton, selectPhoto;
+    private Button submitButton, selectPhoto, cancelButton;
     private EditText itemName, itemBriefInfo, itemContent, itemTypes, itemEnergy, itemCategory;
     private ImageView imageView;
     private Bitmap bm = null;
@@ -72,6 +73,15 @@ public class AddItem extends AppCompatActivity {
             public void onClick(View v) {
                 Log.v(LOG_TAG, "selectPhoto button clicked.");
                 selectPhoto();
+            }
+        });
+
+        cancelButton = (Button) findViewById(R.id.button_cancel);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // startActivity(new Intent(AddItem.this, MainActivity.class));
+                AddItem.this.finish();
             }
         });
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -126,13 +136,11 @@ public class AddItem extends AppCompatActivity {
         long foodRowId = ContentUris.parseId(foodUri);
         Log.v(LOG_TAG, String.valueOf(foodRowId));
 
-//        if (foodRowId > 0) {
-//
-//            FragmentManager fragmentManager = getFragmentManager();
-//            FragmentTransaction transaction = fragmentManager.beginTransaction();
-//            transaction.replace(R.id.details_activity_fragment, fragmentManager.findFragmentById(R.id.submission_completed));
-//            transaction.commit();
-//        }
+        if (foodRowId > 0) {
+            Toast.makeText(this, "Your data has been added", Toast.LENGTH_SHORT).show();
+
+            startActivity(new Intent(this, MainActivity.class));
+        }
     }
 
     private byte[] toByteArray() {
@@ -149,7 +157,7 @@ public class AddItem extends AppCompatActivity {
      * user with options when user clicks on the select photo button.
      */
     private void selectPhoto() {
-        final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancle"};
+        final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
 
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
         builder.setTitle("Add Photo!");
@@ -181,6 +189,7 @@ public class AddItem extends AppCompatActivity {
     /**
      * This function handles result receiver by calling
      * startActivityForResult.
+     *
      *  @param requestCode
      * @param resultCode
      * @param data
